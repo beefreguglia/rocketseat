@@ -83,7 +83,7 @@
               hover:bg-linear-(--gradient-hover)
               shadow-(--shadow)
               ${buttonVariants[variant]}
-              ${className}
+              ${className ? className : ""}
             `}
             as="button"
             variant="heading"
@@ -94,10 +94,24 @@
         );
       }
 
+      function Card({ children, className, ...props }) {
+        return (
+          <div
+            className={`
+              bg-(--background) shadow-(--shadow)
+              rounded-2xl
+              ${className ? className : ""}
+            `}
+          >
+            {children}
+          </div>
+        );
+      }
+
       function App() {
         return (
           <main className="py-28 px-4">
-            <Button>CE</Button>
+            <Card>Testando Card</Card>
           </main>
         );
       }
