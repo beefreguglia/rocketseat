@@ -165,7 +165,7 @@
 
         React.useEffect(() => {
           const savedHistory = localStorage.getItem(historyStorageKey);
-          setHistory(JSON.parse(savedHistory || '[]'))
+          setHistory(JSON.parse(savedHistory || "[]"));
         }, []);
 
         return (
@@ -175,40 +175,12 @@
         );
       }
 
-      function CalculatorDisplay({ operation, result }) {
-        return (
-          <div
-            className={`
-                flex flex-col gap-2 px-6
-                cursor-default select-none
-              `}
-          >
-            <Text
-              as="div"
-              className="flex items-center justify-end h-7"
-              variant="muted"
-            >
-              {result && operation}
-            </Text>
-            <div
-              className={`
-                  flex items-center justify-between h-9
-                `}
-            >
-              <Text variant="muted">=</Text>
-              <Text variant="blast">{result || operation}</Text>
-            </div>
-          </div>
-        );
-      }
-
-      function Calculator() {
+      function useCalculator() {
         const [operation, setOperation] = React.useState("");
         const [result, setResult] = React.useState("");
-
         const { updateHistory } = React.useContext(CalculatorContext);
 
-        function handleInputClick(input) {
+        function doOperation(input) {
           if (input === "C") {
             setOperation("");
             setResult("");
@@ -243,6 +215,46 @@
           }
 
           setOperation(`${operation}${input}`);
+        }
+
+        return {
+          operation,
+          result,
+          doOperation,
+        };
+      }
+      function CalculatorDisplay({ operation, result }) {
+        return (
+          <div
+            className={`
+                flex flex-col gap-2 px-6
+                cursor-default select-none
+              `}
+          >
+            <Text
+              as="div"
+              className="flex items-center justify-end h-7"
+              variant="muted"
+            >
+              {result && operation}
+            </Text>
+            <div
+              className={`
+                  flex items-center justify-between h-9
+                `}
+            >
+              <Text variant="muted">=</Text>
+              <Text variant="blast">{result || operation}</Text>
+            </div>
+          </div>
+        );
+      }
+
+      function Calculator() {
+        const { operation, result, doOperation } = useCalculator();
+
+        function handleInputClick(input) {
+          doOperation(input);
         }
 
         return (
