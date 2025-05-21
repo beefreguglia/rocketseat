@@ -81,7 +81,7 @@
             className={`
               flex items-center justify-center rounded-xl
               p-3 cursor-pointer text-(--text)
-              bg-linear-(--gradient) 
+              bg-linear-(--gradient)
               hover:bg-linear-(--gradient-hover)
               shadow-(--shadow)
               ${buttonVariants[variant]}
@@ -141,6 +141,25 @@
         ],
       ];
 
+      const CalculatorContext = React.createContext();
+
+      function CalculatorProvider({ children }) {
+        const [history, setHistory] = React.useState([]);
+
+        function updateHistory(operation, parsedResult) {
+          setHistory((prevState) => [
+            ...prevState,
+            `${operation}=${parsedResult}`,
+          ]);
+        }
+
+        return (
+          <CalculatorContext.Provider value={{ history, updateHistory }}>
+            {children}
+          </CalculatorContext.Provider>
+        );
+      }
+
       function CalculatorDisplay({ operation, result }) {
         return (
           <div
@@ -172,6 +191,8 @@
         const [operation, setOperation] = React.useState("");
         const [result, setResult] = React.useState("");
 
+        const { updateHistory } = React.useContext(CalculatorContext);
+
         function handleInputClick(input) {
           if (input === "C") {
             setOperation("");
@@ -191,15 +212,12 @@
               .toString()
               ?.replace(/\./g, ",");
             setResult(parsedResult);
+            updateHistory(operation, parsedResult);
             return;
           }
 
           if (result) {
-            setOperation(
-              isNaN(input)
-                ? `${result}${input}`
-                : input
-            );
+            setOperation(isNaN(input) ? `${result}${input}` : input);
             setResult("");
             return;
           }
@@ -209,9 +227,7 @@
             return;
           }
 
-          setOperation(
-            `${operation}${input}`
-          );
+          setOperation(`${operation}${input}`);
         }
 
         return (
@@ -246,18 +262,27 @@
       }
 
       function OperationHistory() {
+        const { history } = React.useContext(CalculatorContext);
+
         return (
           <Card className="py-10 px-8 w-full">
             <Text as="h1" variant="heading" className="mb-4">
               Histórico de Operações
             </Text>
 
-            <ul className="flex flex-col gap-3">
-              <Text as="li">2 + 3 + 1 = 6</Text>
-              <Text as="li">2 + 3 + 1 = 6</Text>
-              <Text as="li">2 + 3 + 1 = 6</Text>
-              <Text as="li">2 + 3 + 1 = 6</Text>
-            </ul>
+            {history.length ? (
+              <ul className="flex flex-col gap-3">
+                {history.map((lastOperations, i) => (
+                  <Text as="li" key={`${lastOperations}-${i}`}>
+                    {lastOperations}
+                  </Text>
+                ))}
+              </ul>
+            ) : (
+              <Text as="p" variant="muted">
+                Nenhuma operação recente.
+              </Text>
+            )}
           </Card>
         );
       }
@@ -272,8 +297,10 @@
               gap-2
             `}
           >
-            <Calculator />
-            <OperationHistory />
+            <CalculatorProvider>
+              <Calculator />
+              <OperationHistory />
+            </CalculatorProvider>
           </main>
         );
       }
