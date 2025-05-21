@@ -3,6 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik&display=swap"
+      rel="stylesheet"
+    />
     <title>Rocketseat - React.js - Fundamentos</title>
 
     <style type="text/tailwindcss">
@@ -12,12 +18,10 @@
         --primary: #462878;
         --background: #2d2a37;
 
-        --gradient: 180deg, 
-          rgba(0, 0, 0, 0.05) 0%,
+        --gradient: 180deg, rgba(0, 0, 0, 0.05) 0%,
           rgba(255, 255, 255, 0.05) 100%;
 
-        --gradient-hover: 180deg, 
-          rgba(0, 0, 0, 0.01) 0%,
+        --gradient-hover: 180deg, rgba(0, 0, 0, 0.01) 0%,
           rgba(255, 255, 255, 0.01) 100%;
 
         --shadow: 0px 11px 7px 0px rgba(0, 0, 0, 0.01),
@@ -31,7 +35,7 @@
       }
     </style>
   </head>
-  <body>
+  <body className="text-(--text) font-(--font-sans)">
     <div id="root"></div>
 
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
@@ -40,9 +44,35 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
     <script type="text/babel">
-      ReactDOM.createRoot(document.getElementById("root")).render(
-        <h1>Hello World</h1>
-      );
+      const textVariants = {
+        default: "text-xl",
+        muted: "text-xl text-(--text-secondary)",
+        heading: "text-2xl",
+        blast: "text-3xl",
+      };
+
+      function Text({
+        as = "span",
+        variant = 'default',
+        className,
+        children,
+        ...props
+      }) {
+        return React.createElement(
+          as,
+          {
+            ...props, 
+            className: `${textVariants[variant]} ${className}`
+          },
+          children
+        );
+      }
+
+      function App() {
+        return <main className="py-28 px-4"></main>;
+      }
+
+      ReactDOM.createRoot(document.getElementById("root")).render(<App />);
     </script>
   </body>
 </html>
