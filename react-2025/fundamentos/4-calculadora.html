@@ -35,7 +35,9 @@
       }
     </style>
   </head>
-  <body class="bg-linear-[180deg,_#807ECE_0%,_#8E7ECE_100%] min-h-screen text-(--text) font-(--font-sans)">
+  <body
+    class="bg-linear-[180deg,_#807ECE_0%,_#8E7ECE_100%] min-h-screen text-(--text) font-(--font-sans)"
+  >
     <div id="root"></div>
 
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
@@ -108,6 +110,37 @@
         );
       }
 
+      const buttons = [
+        [
+          { input: "CE" },
+          { input: "C", className: "flex-1 h-16" },
+          { input: "/", variant: "primary" },
+        ],
+        [
+          { input: "7" },
+          { input: "8" },
+          { input: "9" },
+          { input: "*", variant: "primary" },
+        ],
+        [
+          { input: "4" },
+          { input: "5" },
+          { input: "6" },
+          { input: "-", variant: "primary" },
+        ],
+        [
+          { input: "1" },
+          { input: "2" },
+          { input: "3" },
+          { input: "+", variant: "primary" },
+        ],
+        [
+          { input: "0", className: "flex-1 h-16" },
+          { input: "," },
+          { input: "=", className: "w-16 h-16 bg-[#7F45E2]" },
+        ],
+      ];
+
       function CalculatorDisplay({ operation, result }) {
         return (
           <div
@@ -146,44 +179,21 @@
             <CalculatorDisplay operation="1 + 1" result="2" />
 
             <div className="flex flex-col gap-3">
-              <div className="flex gap-3">
-                <Button className="w-16 h-16">CE</Button>
-                <Button className="flex-1 h-16">C</Button>
-                <Button className="w-16 h-16" variant="primary">
-                  /
-                </Button>
-              </div>
-              <div className="flex gap-3">
-                <Button className="w-16 h-16">7</Button>
-                <Button className="w-16 h-16">8</Button>
-                <Button className="w-16 h-16">9</Button>
-                <Button className="w-16 h-16" variant="primary">
-                  *
-                </Button>
-              </div>
-              <div className="flex gap-3">
-                <Button className="w-16 h-16">4</Button>
-                <Button className="w-16 h-16">5</Button>
-                <Button className="w-16 h-16">6</Button>
-                <Button className="w-16 h-16" variant="primary">
-                  -
-                </Button>
-              </div>
-              <div className="flex gap-3">
-                <Button className="w-16 h-16">1</Button>
-                <Button className="w-16 h-16">2</Button>
-                <Button className="w-16 h-16">3</Button>
-                <Button className="w-16 h-16" variant="primary">
-                  +
-                </Button>
-              </div>
-              <div className="flex gap-3">
-                <Button className="flex-1 h-16">0</Button>
-                <Button className="w-16 h-16">,</Button>
-                <Button className="w-16 h-16" variant="primary">
-                  =
-                </Button>
-              </div>
+              {buttons.map((row, index) => (
+                <div key={`row-${index}`} className="flex gap-3">
+                  {row.map((button) => (
+                    <Button
+                      variant={button.variant}
+                      key={button.input}
+                      className={
+                        button.className ? button.className : "w-16 h-16"
+                      }
+                    >
+                      {button.input}
+                    </Button>
+                  ))}
+                </div>
+              ))}
             </div>
           </Card>
         );
@@ -208,7 +218,7 @@
 
       function App() {
         return (
-          <main 
+          <main
             className={`
               py-28 px-4 sm:px-10
               flex flex-col-reverse sm:flex-row
