@@ -9,7 +9,8 @@ import XIcon from "./assets/icons/x.svg?react";
 import { Badge } from "./components/badge";
 import { Button } from "./components/button";
 import { ButtonIcon } from "./components/button-icon";
-import { InputText } from "./components/input";
+import { InputText } from "./components/input-text";
+import { InputCheckbox } from "./components/input-checkbox";
 
 export function App() {
 	return (
@@ -33,6 +34,9 @@ export function App() {
 			<ButtonIcon icon={TrashIcon} variant="tertiary" />
 			<ButtonIcon icon={TrashIcon} variant="tertiary" disabled />
 			<InputText />
+			<div>
+				<InputCheckbox />
+			</div>
 		</div>
 	);
 }
