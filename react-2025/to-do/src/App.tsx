@@ -6,6 +6,8 @@ import CopyIcon from "./assets/icons/copy.svg?react";
 import PencilIcon from "./assets/icons/pencil.svg?react";
 import PlusIcon from "./assets/icons/plus.svg?react";
 import XIcon from "./assets/icons/x.svg?react";
+import { Badge } from "./components/badge";
+import { Button } from "./components/button";
 
 export function App() {
 	return (
@@ -19,6 +21,9 @@ export function App() {
 				<Icon svg={PlusIcon} className="fill-green-base" />
 				<Icon svg={XIcon} className="fill-green-base" />
 			</div>
+			<Badge>2 de 5</Badge>
+
+			<Button icon={XIcon}>Botão</Button>
 		</div>
 	);
 }
