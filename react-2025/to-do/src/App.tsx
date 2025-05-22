@@ -12,33 +12,36 @@ import { ButtonIcon } from "./components/button-icon";
 import { InputText } from "./components/input-text";
 import { InputCheckbox } from "./components/input-checkbox";
 import { Card } from "./components/card";
+import { Container } from "./components/container";
 
 export function App() {
 	return (
-		<div className="grid gap-3">
-			<Text variant="body-md-bold">Olá Mundo</Text>
-			<div className="flex gap-1">
-				<Icon svg={TrashIcon} className="fill-green-base" />
-				<Icon svg={CheckIcon} className="fill-green-base" />
-				<Icon svg={CopyIcon} className="fill-green-base" />
-				<Icon svg={PencilIcon} className="fill-green-base" />
-				<Icon svg={PlusIcon} className="fill-green-base" />
-				<Icon svg={XIcon} className="fill-green-base" />
-			</div>
-			<Badge>2 de 5</Badge>
+		<Container>
+			<div className="grid gap-3">
+				<Text variant="body-md-bold">Olá Mundo</Text>
+				<div className="flex gap-1">
+					<Icon svg={TrashIcon} className="fill-green-base" />
+					<Icon svg={CheckIcon} className="fill-green-base" />
+					<Icon svg={CopyIcon} className="fill-green-base" />
+					<Icon svg={PencilIcon} className="fill-green-base" />
+					<Icon svg={PlusIcon} className="fill-green-base" />
+					<Icon svg={XIcon} className="fill-green-base" />
+				</div>
+				<Badge>2 de 5</Badge>
 
-			<Button icon={XIcon} disabled>
-				Botão
-			</Button>
-			<ButtonIcon icon={CopyIcon} />
-			<ButtonIcon icon={CheckIcon} variant="secondary" />
-			<ButtonIcon icon={TrashIcon} variant="tertiary" />
-			<ButtonIcon icon={TrashIcon} variant="tertiary" disabled />
-			<InputText />
-			<div>
-				<InputCheckbox />
+				<Button icon={XIcon} disabled>
+					Botão
+				</Button>
+				<ButtonIcon icon={CopyIcon} />
+				<ButtonIcon icon={CheckIcon} variant="secondary" />
+				<ButtonIcon icon={TrashIcon} variant="tertiary" />
+				<ButtonIcon icon={TrashIcon} variant="tertiary" disabled />
+				<InputText />
+				<div>
+					<InputCheckbox />
+				</div>
+				<Card size="md">teste</Card>
 			</div>
-			<Card>teste</Card>
-		</div>
+		</Container>
 	);
 }
