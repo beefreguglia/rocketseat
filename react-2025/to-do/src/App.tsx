@@ -8,6 +8,7 @@ import PlusIcon from "./assets/icons/plus.svg?react";
 import XIcon from "./assets/icons/x.svg?react";
 import { Badge } from "./components/badge";
 import { Button } from "./components/button";
+import { ButtonIcon } from "./components/button-icon";
 
 export function App() {
 	return (
@@ -23,7 +24,13 @@ export function App() {
 			</div>
 			<Badge>2 de 5</Badge>
 
-			<Button icon={XIcon}>Botão</Button>
+			<Button icon={XIcon} disabled>
+				Botão
+			</Button>
+			<ButtonIcon icon={CopyIcon} />
+			<ButtonIcon icon={CheckIcon} variant="secondary" />
+			<ButtonIcon icon={TrashIcon} variant="tertiary" />
+			<ButtonIcon icon={TrashIcon} variant="tertiary" disabled />
 		</div>
 	);
 }
