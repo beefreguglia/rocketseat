@@ -10,6 +10,7 @@ import { useState, type ChangeEvent, type FormEvent } from "react";
 import { InputText } from "../components/input-text";
 import { TaskState, type Task } from "../model/task";
 import { cx } from "class-variance-authority";
+import { useTask } from "../hooks/use-task";
 
 type TaskItemProps = {
 	task: Task;
@@ -19,7 +20,9 @@ export function TaskItem({ task }: TaskItemProps) {
 	const [isEditing, setIsEditing] = useState(
 		task?.state === TaskState.Creating,
 	);
-	const [taskTitle, setTaskTitle] = useState("");
+	const [taskTitle, setTaskTitle] = useState(task?.title || "");
+
+	const { updateTask } = useTask();
 
 	function handleEditingTask() {
 		setIsEditing(true);
@@ -36,6 +39,7 @@ export function TaskItem({ task }: TaskItemProps) {
 	function handleSaveTask(e: FormEvent<HTMLFormElement>) {
 		e.preventDefault();
 		console.log({ id: task.id, title: task.title });
+		updateTask(task.id, { title: taskTitle });
 		setIsEditing(false);
 	}
 
