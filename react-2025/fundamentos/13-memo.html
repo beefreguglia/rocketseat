@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rocketseat - React.js - Fundamentos</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      function App() {
+        const users =  [
+          { id: 1, name: 'Bernardo' },
+          { id: 2, name: 'Ana Beatriz' },
+          { id: 3, name: 'Guilherme' },
+          { id: 4, name: 'Gustavo' },
+          { id: 5, name: 'Carlos' },
+          { id: 6, name: 'Ana' },
+        ]
+        
+        const [search, setSearch] = React.useState('');
+        const [count, setCount] = React.useState(0);
+
+        console.log('re-render')
+
+        const filteredUsers = React.useMemo(() => {
+          console.log('Filtrando dados')
+          
+          return users.filter( 
+            (user) => user.name.toLocaleLowerCase()
+              .includes(search.toLocaleLowerCase())
+          )
+        }, [search]);
+        
+        return(
+          <main>
+            <input
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder="Buscar usuários..." 
+              type="text" 
+            />
+            <button onClick={() => setCount((prevValue) => (prevValue + 1))}>
+              Re-render: {count}
+            </button>
+            <ul>
+              {filteredUsers.map(({ id, name }) => (
+                <li key={id}>{name}</li>
+              ))}
+            </ul>
+          </main>
+        )
+      }
+
+      ReactDOM.createRoot(document.getElementById('root')).render(
+        <App />
+      )
+    </script>
+  </body>
+</html>

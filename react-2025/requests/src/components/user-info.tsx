@@ -2,13 +2,13 @@ import { useEffect } from "react";
 import { useUser } from "../hooks/use-user";
 
 export function UserInfo() {
-	const { user, getUser, requestStatus } = useUser();
+	const { user, getUser, userRequestStatus } = useUser();
 
 	useEffect(() => {
 		getUser("gus");
 	}, [getUser]);
 
-	if (requestStatus === "loading") {
+	if (userRequestStatus === "loading") {
 		return <div>Carregando usuário...</div>;
 	}
 
