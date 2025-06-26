@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quicklist</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/index.css">
+</head>
+<body>
+  <header>
+    <img src="assets/logo.svg" alt="Logomarca">
+  </header>
+  <main>
+    <a href="#">
+      <- Voltar 
+    </a>
+    <form>
+      <fieldset>
+        <legend>Compras da semana</legend>
+        <div class="flex">
+          <div class="input-wrapper flex-1">
+            <label class="sr-only" for="shopping">Adicione um novo item</label>
+            <input class="flex-1" id="shopping" name="shopping" type="text" placeholder="Adicione um novo item">
+          </div>
+          <button type="submit">Adicionar item</button>
+        </div>
+      </fieldset>
+      <section id="shopping-list">
+        
+      </section>
+    </form>
+    <footer class="hide">
+      <div>
+        <img src="assets/icons/info.svg" alt="Info icon">
+        <p></p>
+      </div>
+      <button type="button">
+        <img src="assets/icons/close.svg" alt="Close icon">
+      </button>
+    </footer>
+  </main>
+  <script src="scripts.js"></script>
+</body>
+</html>

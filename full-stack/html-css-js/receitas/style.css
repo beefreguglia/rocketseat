@@ -1,0 +1,64 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: "Alice", serif;
+  color: #573A37;
+}
+
+body {
+  background-image: url("./assets/bg-image.jpg");
+  background-size: cover;
+}
+
+#page {
+  padding: 24px;
+  border-radius: 24px;
+  width: 800px;
+  background-color: #F0E8C2;
+  margin: 48px auto 28px;
+}
+
+img {
+  border-radius: 16px;
+}
+
+main {
+  padding: 24px;
+}
+
+section + section {
+  margin-top: 24px;
+}
+
+#about p + p {
+  margin-top: 12px;
+}
+
+h1 {
+  line-height: 140%;
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+h1, h2 {
+  color: #291B1A;
+  margin-bottom: 4px;
+  line-height: 150%;
+}
+
+footer {
+  color: #F0E8C2;
+  text-align: center;
+  padding-bottom: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}

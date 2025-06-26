@@ -1,0 +1,14 @@
+.input {
+  width: 2.77rem;
+  height: 2.77rem;
+  flex-shrink: 0;
+
+  border-radius: 0.437rem;
+  border: 2px solid #4F4FB9;
+
+  background: #EBEBFC;
+
+  padding: 1rem;
+
+  text-transform: uppercase;
+}

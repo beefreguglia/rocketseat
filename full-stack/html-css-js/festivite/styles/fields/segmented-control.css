@@ -1,0 +1,64 @@
+.segmented-control-wrapper {
+  display: flex;
+  width: 100%;
+  border-radius: .5rem;
+  outline: 1px solid var(--color-input-stroke);
+  font: var(--font-text-md);
+  background: var(--color-input-base);
+  color: var(--color-input-placeholder);
+  align-items: center;  
+  padding: .25rem;
+}
+
+.segmented-control-inner {
+  padding: 10px 1rem;
+  width: 100%;
+  border-radius: .5rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  & input {
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    inset: 0;
+    opacity: 0;
+  }
+
+  & label {
+    display: flex;
+    margin: 0;
+    gap: .25rem;
+    font: var(--font-text-sm);
+    color: var(--color-text-body);
+
+    svg {
+      width: 1rem;
+      height: 1rem;
+      
+      path {
+        fill: var(--color-text-body);
+      }
+    }
+  }
+}
+
+.segmented-control-inner:has(input:checked) {
+  background-color: var(--color-shape-button);
+
+  & label {
+    font: var(--font-text-sm);
+    color: var(--color-text-heading);
+
+    svg {
+      width: 1rem;
+      height: 1rem;
+      
+      path {
+        fill: #59B2FF;
+      }
+    }
+  }
+}

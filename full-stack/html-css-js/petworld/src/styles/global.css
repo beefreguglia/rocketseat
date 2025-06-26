@@ -1,0 +1,66 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  --content-primary: #F5F4F5;
+  --content-secondary: #98959D;
+  --background-primary: #14151D;
+  --background-secondary: #050505;
+  --background-tertiary: #23242C;
+  --background-highlights: #BDB4FA;
+  --brand: #9282FA;
+  --border-primary: #3E3C41;
+  --border-secondary: #86818C;
+  --border-divisor: #2E2C30;
+  --ff-title: "Inter Tight", sans-serif;
+  --ff-paragraph: "Inter", sans-serif;
+  --title: 700 1.5rem / 2rem var(--ff-title);
+  --paragraph-md: 500 .875rem / 1.5rem var(--ff-paragraph);
+  --paragraph-sm: 500 .75rem / 1rem var(--ff-paragraph);
+  --input: 400 1rem / 1.5rem var(--ff-paragraph);
+  --label-lg: 700 1rem / 1.5rem var(--ff-paragraph);
+  --label-md: 700 .875rem / 1.5rem var(--ff-paragraph);
+  --label-sm: 700 .75rem / 1rem var(--ff-paragraph);
+  --link: 500 .75rem / 1rem var(--ff-paragraph);
+}
+
+::-webkit-scrollbar {
+  width: 0.3rem;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--brand);
+}
+
+body {
+  background-color: var(--background-primary);
+  color: var(--content-primary);
+  font: var(--paragraph-md);
+  overflow: hidden;
+}
+
+.container {
+  margin-top: 3.25rem;
+  overflow: hidden;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

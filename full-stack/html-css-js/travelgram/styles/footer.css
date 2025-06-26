@@ -1,0 +1,28 @@
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-block: 1.5rem;
+  gap: 1.5rem;
+  font: var(--text-md-footer);
+}
+
+footer span:nth-child(1) {
+  margin-right: auto;
+  width: 100%;
+}
+
+@media (width >= 80em) {
+  footer {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+  }
+  
+  footer span:nth-child(1) {
+    margin-right: auto;
+    width: initial;
+  }
+}  

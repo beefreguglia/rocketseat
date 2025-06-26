@@ -1,0 +1,65 @@
+.social-button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 400px;
+  padding: 20px;
+  border-radius: 8px;
+  background: var(--gray-300);
+  border: none;
+  cursor: pointer;
+  color: var(--gray-500);
+  border: 1.5px solid transparent;
+  transition: border 0.3s;
+
+
+  div {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+
+    span {
+      width: 28px;
+      height: 28px;
+    }
+
+    .linkedin {
+      background-image: url('../assets/icons/LinkedinLogo.svg');
+    }
+
+    .instagram {
+      background-image: url('../assets/icons/InstagramLogo.svg');
+    }
+
+    .github {
+      background-image: url('../assets/icons/GithubLogo.svg');
+    }
+
+    .email {
+      background-image: url('../assets/icons/EnvelopeSimple.svg');
+    }
+  }
+}
+
+.social-button:hover {
+  border: 1.5px solid var(--blue);
+
+
+  .linkedin {
+    background-image: url('../assets/icons/LinkedinLogoHover.svg');
+  }
+
+  .instagram {
+    background-image: url('../assets/icons/InstagramLogoHover.svg');
+  }
+
+  .github {
+    background-image: url('../assets/icons/GithubLogoHover.svg');
+  }
+
+  .email {
+    background-image: url('../assets/icons/EnvelopeSimpleHover.svg');
+  }
+
+}

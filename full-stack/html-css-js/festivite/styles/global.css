@@ -1,0 +1,72 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  --font-family-leckerli-one: "Leckerli One", cursive;
+  --font-family-baloo-2: "Baloo 2", sans-serif;
+  --font-family-open-sans: "Open Sans", sans-serif;
+  --font-logo: 400 2.5rem var(--font-family-leckerli-one);
+  --font-heading-md: 700 1.75rem var(--font-family-baloo-2);
+  --font-heading-sm: 700 1.25rem var(--font-family-baloo-2);
+  --font-text-md: 400 1rem var(--font-family-open-sans);
+  --font-text-sm: 400 0.75rem var(--font-family-open-sans);
+  --font-text-xs: 400 0.5rem var(--font-family-open-sans);
+
+  --color-danger: #FF5959;
+  --color-input-base: #1C1f21;
+  --color-input-stroke: #363B40;
+  --color-input-placeholder: #869198;
+  --color-shape-background: #131516;
+  --color-shape-body: #212427;
+  --color-shape-button: #2D3136;
+  --color-shape-hover: #383D42;
+  --color-text-body: #C8CDD0;
+  --color-text-heading: #F9F9F9;
+}
+
+body {
+  background: var(--color-shape-background);
+  font: var(--font-text-md);
+  color: var(--color-text-body);
+  overflow: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.flex {
+  display: flex;
+  gap: 1rem;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.flex-2 {
+  flex: 2;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.separator {
+  border-top: 2px solid var(--color-shape-hover);
+  margin: 3rem .5rem;
+}

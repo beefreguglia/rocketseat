@@ -1,0 +1,28 @@
+button {
+  all: unset;
+  font-weight: 500;
+  color: var(--text-highlight);
+  padding: .625rem 2.75rem;
+  border-radius: .75rem;
+  cursor: pointer;
+  text-align: center;
+  color: var(--background-secondary);
+  background-color: var(--color-brand);
+  font: var(--label);
+  transition: background 300ms;
+
+  &:hover {
+    background-color: var(--color-brand-hover);
+  }
+}
+
+a {
+  font: var(--link);
+  color: var(--color-brand);
+  text-decoration: none;
+  transition: color 300ms;
+
+  &:hover {
+    color: var(--color-brand-hover);
+  }
+}

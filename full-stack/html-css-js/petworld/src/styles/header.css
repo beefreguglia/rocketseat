@@ -1,0 +1,23 @@
+main > header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 2rem;
+
+  & h1 {
+    font: var(--title);
+  }
+
+  & p {
+    font: var(--paragraph-md);
+    color: var(--content-secondary);
+  }
+}
+
+@media (width >= 80em) {
+  main > header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}

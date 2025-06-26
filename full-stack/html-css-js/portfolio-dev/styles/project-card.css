@@ -1,0 +1,32 @@
+.project-card {
+  padding: 12px;
+  border-radius: 12px;
+  background: var(--gray-300);
+  width: 330px;
+  height: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border: 1.5px solid transparent;
+  transition: 300ms;
+
+  &:hover {
+    border: 1.5px solid var(--gray-400);
+  }
+
+  img {
+    border-radius: 8px;
+  } 
+
+  h4 {
+    text-align: left;
+    color: var(--gray-600);
+  }
+
+  p {
+    margin-top: 8px;
+    text-align: left;
+    color: var(--gray-500);
+  }
+
+}

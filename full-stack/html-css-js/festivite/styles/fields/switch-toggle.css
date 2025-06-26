@@ -1,0 +1,57 @@
+.switch-toggle-wrapper {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+
+  &::after {
+    content: "Escuro";
+    display: block;
+    color: var(--color-text-heading);
+    font: var(--font-text-sm);
+  }
+}
+
+.switch-toggle-wrapper:has(input:checked) {
+  &::after {
+    content: "Claro";
+  }
+}
+
+.switch-toggle-inner {
+  border-radius: 1rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 64px;
+  height: 32px;
+  background-color: var(--color-input-base);
+  border: 2px solid transparent;
+  outline: 1px solid var(--color-input-stroke);
+  cursor: pointer;
+
+  & input {
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  & .slider {
+    width: 1.75rem;
+    height: 1.75rem;
+    background-color: var(--color-input-stroke);
+    border-radius: 9999px;
+  }
+}
+
+.switch-toggle-inner:has(input:checked) {
+  background-color: #59B2FF;
+  justify-content: flex-end;
+  outline-color: #59B2FF;
+
+  & .slider {
+    background-color: #FFFFFF;
+  }
+}

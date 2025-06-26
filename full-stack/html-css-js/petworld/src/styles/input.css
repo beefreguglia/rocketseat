@@ -1,0 +1,46 @@
+.input, .textarea {
+  width: 100%;
+  border: 1px solid var(--border-primary);
+  padding: 0.87rem 0.75rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.input i {
+  margin-right: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  & img {
+    width: 100%;
+    height: 100%;
+  }
+} 
+
+.input input, .textarea textarea {
+  flex: 1;
+  background-color: transparent;
+  font: var(--input);
+  color: var(--content-secondary);
+  outline: none;
+  border: none;
+}
+
+.input:focus-within {
+  border: 1px solid var(--brand);
+}
+
+.input:hover {
+  border: 1px solid var(--border-secondary);
+}
+
+.input:hover + .input:focus-within {
+  border: 1px solid var(--brand);
+}
+
+
+::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  background: url("../assets/arrow.svg") no-repeat;
+}

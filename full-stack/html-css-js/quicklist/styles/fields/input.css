@@ -1,0 +1,30 @@
+& .input-wrapper {
+  display: flex;
+  
+  & input {
+    appearance: none;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    height: 2.75rem;
+    padding-inline: 1.125rem;
+    border-radius: 0.75rem;
+    border: 2px solid var(--border-primary);
+    background-color: var(--background-secondary);
+    font: var(--input);
+    transition: border-color 200ms;
+  
+    &::placeholder {
+      color: var(--content-tertiary);
+    }
+  
+    &:hover {
+      border-color: var(--border-hover);
+    }
+  
+    &:focus {
+      border-color: var(--color-brand);
+      outline: 2px solid transparent;
+    }
+  }
+}

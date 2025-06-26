@@ -1,0 +1,13 @@
+header {
+  display: none;
+}
+
+
+@media (width >= 80em) {
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+  }
+}

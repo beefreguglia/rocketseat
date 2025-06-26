@@ -1,0 +1,87 @@
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.01);
+  backdrop-filter: blur(6px);
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  padding: 1.25rem;
+
+  &.hide {
+    display: none;
+  }
+}
+
+.modal {
+  border-radius: .75rem;
+  background-color: var(--background-tertiary);
+  display: flex;
+  flex-direction: column;
+  padding: .5rem;
+
+  & .close {
+    align-self: flex-end;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: opacity 300ms;
+    
+    &:hover {
+      opacity: 0.6;
+    }
+
+    & img {
+      width: 2.25rem;
+      height: 2.25rem;
+    }
+  }
+
+  & fieldset {
+    border: none;
+    padding: 0.75rem;
+    display: flex;
+    flex-direction: column;
+
+    & .date {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: .75rem;
+    }
+
+    & legend {
+      font: var(--title);
+    }
+
+    & p {
+      font: var(--paragraph-md);
+      color: var(--content-secondary);
+    }
+
+    & label {
+      display: block;
+      margin-top: 1rem;
+    }
+
+    & .schedule {
+      margin-top: 1.75rem;
+      margin-left: auto;
+      animation: none;
+      margin-bottom: 0.625rem;
+    } 
+  }
+}
+
+@media (width >= 80em) {
+  .modal {
+    & fieldset {
+      & .date {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+    }
+  }
+}

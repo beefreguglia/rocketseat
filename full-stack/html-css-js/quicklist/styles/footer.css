@@ -1,0 +1,49 @@
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--color-danger);
+  border-radius: .75rem;
+  padding: .75rem;
+  animation: footerAppear 300ms ease-in;
+
+  & > button {
+    all: unset;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    &:hover {
+      background: transparent;
+    }
+  }
+
+  & img {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  & > div {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    
+    & > p {
+      color: white;
+      font: var(--label);
+    }
+  }
+}
+
+@keyframes footerAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
